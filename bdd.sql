@@ -144,3 +144,12 @@ CREATE TABLE IF NOT EXISTS droits_calendriers (
     FOREIGN KEY (id_droit) REFERENCES droits(id_droit) ON DELETE CASCADE,
     FOREIGN KEY (id_cal) REFERENCES calendriers(id_cal) ON DELETE CASCADE
 );
+
+CREATE TABLE IF NOT EXISTS user_calendriers (
+    id_user INT,
+    id_cal INT,
+    role_user ENUM('proprietaire', 'contributeur', 'lecteur') NOT NULL DEFAULT 'lecteur',
+    PRIMARY KEY (id_user, id_cal),
+    FOREIGN KEY (id_user) REFERENCES users(id_user) ON DELETE CASCADE,
+    FOREIGN KEY (id_cal) REFERENCES calendriers(id_cal) ON DELETE CASCADE
+);
