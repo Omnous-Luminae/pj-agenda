@@ -1,4 +1,5 @@
-Create database named 'agenda';
+CREATE DATABASE IF NOT EXISTS pj_agenda;
+USE pj_agenda;
 
 CREATE TABLE IF NOT EXISTS users (
     id_user INT AUTO_INCREMENT PRIMARY KEY,
