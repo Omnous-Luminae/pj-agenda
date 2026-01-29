@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS droits (
 CREATE TABLE IF NOT EXISTS calendriers (
     id_cal INT AUTO_INCREMENT PRIMARY KEY,
     nom_cal VARCHAR(100) NOT NULL,
+    est_commun BOOLEAN DEFAULT FALSE,
     cal_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     cal_updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
@@ -153,3 +154,13 @@ CREATE TABLE IF NOT EXISTS user_calendriers (
     FOREIGN KEY (id_user) REFERENCES users(id_user) ON DELETE CASCADE,
     FOREIGN KEY (id_cal) REFERENCES calendriers(id_cal) ON DELETE CASCADE
 );
+
+-- Insérer un utilisateur de test
+INSERT INTO users (nom_user, prenom_user, email, mdp_user, status_user) 
+VALUES ('Test', 'User', 'test@example.com', 'password123', 'active');
+
+-- Insérer le calendrier commun
+INSERT INTO calendriers (nom_cal, est_commun) VALUES ('Calendrier Commun', TRUE);
+
+-- Ajouter l'utilisateur test au calendrier commun en tant que contributeur
+INSERT INTO user_calendriers (id_user, id_cal, role_user) VALUES (1, 1, 'contributeur');

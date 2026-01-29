@@ -1,38 +1,122 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
+  background: linear-gradient(to bottom, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.app-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Amélioration du style du calendrier */
+.fc {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+}
+
+.fc-header-toolbar {
+  margin-bottom: 1.5rem !important;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.fc-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 0.5rem 1rem !important;
+  font-weight: 600 !important;
+  text-transform: capitalize !important;
+  transition: all 0.3s ease !important;
+}
+
+.fc-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4) !important;
+}
+
+.fc-button-active {
+  opacity: 0.9 !important;
+}
+
+.fc-button:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+
+.fc-toolbar-title {
+  font-size: 1.75rem !important;
+  font-weight: 700 !important;
+  color: #2c3e50 !important;
+}
+
+.fc-col-header-cell {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white !important;
+  font-weight: 600 !important;
+  padding: 1rem 0.5rem !important;
+  border: none !important;
+}
+
+.fc-daygrid-day {
+  transition: background-color 0.2s ease;
+}
+
+.fc-daygrid-day:hover {
+  background-color: #f8f9fa;
+}
+
+.fc-daygrid-day-number {
+  padding: 0.5rem !important;
+  font-weight: 600 !important;
+}
+
+.fc-event {
+  border-radius: 6px !important;
+  padding: 0.25rem 0.5rem !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.fc-event:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.fc-daygrid-day-top {
+  justify-content: center !important;
+}
+
+.fc-day-today {
+  background-color: rgba(102, 126, 234, 0.1) !important;
+}
+
+.fc-day-today .fc-daygrid-day-number {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Responsive */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .fc {
+    padding: 1rem;
+  }
+
+  .fc-toolbar-title {
+    font-size: 1.25rem !important;
   }
 }
